@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>โปรไฟล์</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-card class="ion-no-margin feed">
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img [src]="user_signin_avatar">
+            </ion-avatar>
+            <ion-label>
+                <h3>{{user_signin_name}}</h3>
+                <p>แก้ไข</p>
+            </ion-label>
+        </ion-item>
+        <ion-grid>
+            <ion-row style="border-top:1px solid #ececec;">
+                <ion-col class="text-center">
+                    <p class="status">88</p>
+                    <label>โพสต์</label>
+                </ion-col>
+                <ion-col class="text-center">
+                    <p class="status">88</p>
+                    <label>กำลังติดตาม</label>
+                </ion-col>
+                <ion-col class="text-center">
+                    <p class="status">88</p>
+                    <label>ติดตาม</label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <ion-card class="ion-no-margin feed" *ngFor="let item of (resultsPost | async)">
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img src="https://via.placeholder.com/500x500">
+            </ion-avatar>
+            <ion-label>
+                <h3>{{item.u_name}}</h3>
+                <p>{{item.p_created | momentjs}}</p>
+            </ion-label>
+            <ion-buttons (click)="presentActionSheet()">
+                <ion-button size="small">
+                    <ion-icon slot="icon-only" ios="ellipsis-horizontal-sharp" md="ellipsis-horizontal-sharp" size="small"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+        <ion-card-content>
+            {{item.p_content}}
+        </ion-card-content>
+        <img src="https://via.placeholder.com/500x500" />
+        <ion-card-content>
+            <ion-icon class="icon" name="heart-sharp" size="small"></ion-icon>
+            <label>25</label>
+        </ion-card-content>
+        <ion-grid>
+            <ion-row style="border-top:1px solid #ececec;">
+                <ion-col class="text-center">
+                    <label>ถูกใจ</label>
+                </ion-col>
+                <ion-col class="text-center">
+                    <label>ความคิดเห็น</label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

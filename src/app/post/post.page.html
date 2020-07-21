@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()">
+                <ion-icon slot="icon-only" ios="arrow-back-outline" md="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>เขียนโพสต์</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="postDataPost(user_signin_id,user_signin_name,content)">
+                โพสต์
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img src="https://via.placeholder.com/500x500">
+            </ion-avatar>
+            <ion-label>
+                <h3>{{user_signin_name}}</h3>
+            </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-textarea autofocus="true" [(ngModel)]="content" placeholder="เกิดอะไรบ้างขึ้นบ้าง..."></ion-textarea>
+        </ion-item>
+<!--         <ion-item >
+            <ion-thumbnail slot="start">
+                <img src="https://via.placeholder.com/500x500">
+            </ion-thumbnail>
+            <ion-label>Lorem ipsum</ion-label>
+            <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" ios="close-outline" md="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        </ion-item> -->
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="icon-only" ios="image-sharp" md="image-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="icon-only" ios="image-sharp" md="image-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

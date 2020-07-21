@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()">
+                <ion-icon slot="icon-only" ios="close-outline" md="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>ความคิดเห็น</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-item lines="none" *ngFor="let item of itemsComment">
+        <ion-avatar slot="start">
+            <img src="https://via.placeholder.com/500x500">
+        </ion-avatar>
+        <ion-label class="ion-text-wrap block-comment">
+            <div class="bk">
+                <h3 class="blod">{{item.u_name}}</h3>
+                <p>{{item.comment_created | momentjs}}</p>
+                <p>{{item.comment_content}}</p>
+            </div>
+        </ion-label>
+    </ion-item>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-item lines="none">
+            <ion-textarea [(ngModel)]="content" placeholder="แสดงความคิดเห็น..."></ion-textarea>
+        </ion-item>
+        <ion-buttons slot="end">
+            <ion-button (click)="postDataComment(content)">
+                <ion-icon slot="start" name="send-sharp" size="large"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

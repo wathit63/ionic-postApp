@@ -1,0 +1,54 @@
+<ion-header [translucent]="true" >
+    <ion-toolbar>
+        <!--      <ion-buttons slot="start">
+          <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons> -->
+        <ion-buttons slot="primary">
+            <ion-button>
+                <ion-icon slot="icon-only" ios="search-sharp" md="search-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            หน้าหลัก
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true"><!-- 
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher> -->
+    <ion-card class="ion-no-margin feed" *ngFor="let item of results">
+        <ion-item lines="none">
+            <ion-avatar slot="start">
+                <img src="https://via.placeholder.com/500x500">
+            </ion-avatar>
+            <ion-label>
+                <h3>{{item.u_name}}</h3>
+                <p>{{item.p_created | momentjs}}</p>
+            </ion-label>
+            <ion-buttons (click)="ActionSheet(item.u_id,item._id,user_signin_name,item.p_content)">
+                <ion-button size="small">
+                    <ion-icon slot="icon-only" ios="ellipsis-horizontal-sharp" md="ellipsis-horizontal-sharp" size="small"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+        <ion-card-content>
+            {{item.p_content}}
+        </ion-card-content>
+        <img [src]="item.p_image" />
+        <ion-card-content>
+            <ion-text color="primary">
+                ถูกใจ {{item.p_like}}
+            </ion-text>
+            <ion-text color="primary">
+                ความคิดเห็น {{item.p_comment}}
+            </ion-text>
+        </ion-card-content>
+        <app-explore-container [postId]="item._id" [userId]="item.u_id" [userName]="item.u_name" [postLike]="item.p_like" [postComment]="item.p_comment" [owner_id]="u_id" [owner_name]="u_name"></app-explore-container>
+    </ion-card>
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button (click)="PostModal(user_signin_id,user_signin_name)">
+            <ion-icon name="add-sharp"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

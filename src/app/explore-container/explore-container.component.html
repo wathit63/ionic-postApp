@@ -1,0 +1,21 @@
+<ion-row style="border-top:1px solid #ececec;">
+    <ion-col class="text-center ion-no-padding">
+        <ion-button *ngIf="likeCheck != 1; else elseBlock" color="dark" expand="full" fill="clear" class="ion-no-margin" (click)="likePost(postId,userId,userName,postLike)">
+            <label>
+                ถูกใจ
+            </label>
+        </ion-button>
+        <ng-template #elseBlock>
+            <ion-button expand="full" fill="clear" class="ion-no-margin" (click)="unLikePost(postId,userId,postLike)">
+                <label>
+                    ถูกใจ
+                </label>
+            </ion-button>
+        </ng-template>
+    </ion-col>
+    <ion-col class="text-center ion-no-padding">
+        <ion-button color="dark" expand="full" fill="clear" class="ion-no-margin" (click)="CommentPostModal(postId,owner_id,owner_name,postComment)">
+            <label>ความคิดเห็น</label>
+        </ion-button>
+    </ion-col>
+</ion-row>
